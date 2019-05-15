@@ -70,17 +70,16 @@ config(){
     echo ""
     sleep 1
     cd ~
-    cd build/bspwm
+    cd ${HOME}/bsinstall/build/bspwm/
     sudo cp contrib/freedesktop/bspwm.desktop /usr/share/xsessions/
     echo ""
     echo "Setting up BSPWMRC & SXHKDRC"
     echo ""
     sleep 1
     mkdir -p ${HOME}/.config/{bspwm,sxhkd}
-    cp examples/bspwmrc ~/.config/bspwm
-    cp examples/sxhkdrc ~/.config/sxhkd
-    cd ~
-    cd build/
+    cp ${HOME}/bsinstall/build/bspwm/examples/bspwmrc ~/.config/bspwm
+    cp ${HOME}/bsinstall/build/bspwm/examples/sxhkdrc ~/.config/sxhkd
+    cd ${HOME}/bsinstall/build/
 }
 
 setting_files(){
@@ -107,13 +106,13 @@ cp_launch(){
 
 main(){
     mkdir -p ./build && cd ./build
-    #dependencies
-    #clone
-    #ins
-    #ins_polybar
-    #cd ..
-    #config
-    #setting_files
+    dependencies
+    clone
+    ins
+    ins_polybar
+    cd ..
+    config
+    setting_files
     cp_launch
     echo ""
     echo "Finishing..."

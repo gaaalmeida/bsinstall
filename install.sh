@@ -93,20 +93,32 @@ setting_files(){
     echo "${HOME}/.config/polybar/launch.sh" >> ~/.config/bspwm/bspwmrc
 }
 
-
+cp_launch(){
+    echo ""
+    echo "Copying launch.sh (Polybar Launcher) to ~/.config/polybar/"
+    echo ""
+    sleep 1
+    cd ~
+    cd bsinstall/src/
+    cp launch.sh ${HOME}/.config/polybar
+    cd ~
+    cd bsinstall/build
+}
 
 main(){
     mkdir -p ./build && cd ./build
-    dependencies
-    clone
-    ins
-    ins_polybar
-    cd ..
-    config
-    setting_files
+    #dependencies
+    #clone
+    #ins
+    #ins_polybar
+    #cd ..
+    #config
+    #setting_files
+    cp_launch
     echo ""
     echo "Finishing..."
     echo ""
+    cd ~
     sleep 2
 }
 

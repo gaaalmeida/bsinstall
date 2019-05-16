@@ -18,6 +18,7 @@ dependencies(){
     case $OS in
         Ubuntu|Debian)
         set -x
+        sudo apt update && sudo apt upgrade
         sudo apt install $deps
     esac
     set +x

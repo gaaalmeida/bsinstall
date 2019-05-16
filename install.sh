@@ -13,9 +13,7 @@ deps="xorg git build-essential clang cmake cmake-data pkg-config python3-sphinx 
 OS=$(lsb_release -si)
 
 dependencies(){
-    echo ""
-    echo "Installing Dependencies..."
-    echo ""
+    echo -e "\nInstalling Dependencies...\n"
     sleep 2
     case $OS in
         Ubuntu|Debian)
@@ -26,10 +24,8 @@ dependencies(){
 }
 
 clone(){
-    echo ""
-    echo "Clonning Repo"
-    echo "bspwm, polybar, sxhkd, xdo, sutils, xtitle"
-    echo ""
+    echo -e "Clonning Repo
+    bspwm, polybar, sxhkd, xdo, sutils, xtitle\n"
     sleep 2
     
     for url in $cl_urls
@@ -49,9 +45,7 @@ ins_polybar(){
 }
 
 ins(){
-    echo ""
-    echo "Starting installation of '$pkgs' !"
-    echo ""
+    echo -e "\nStarting installation of '$pkgs' !\n"
     sleep 2
     for pkg in $pkgs
     do
@@ -65,16 +59,12 @@ ins(){
 }
 
 config(){
-    echo ""
-    echo "Setting up Xsessions"
-    echo ""
+    echo -e "\nSetting up Xsessions\n"
     sleep 1
     cd ~
     cd ${HOME}/bsinstall/build/bspwm/
     sudo cp contrib/freedesktop/bspwm.desktop /usr/share/xsessions/
-    echo ""
-    echo "Setting up BSPWMRC & SXHKDRC"
-    echo ""
+    echo -e "\nSetting up BSPWMRC & SXHKDRC\n"
     sleep 1
     mkdir -p ${HOME}/.config/{bspwm,sxhkd}
     cp ${HOME}/bsinstall/build/bspwm/examples/bspwmrc ~/.config/bspwm
@@ -83,9 +73,7 @@ config(){
 }
 
 setting_files(){
-    echo ""
-    echo "Setting up BSPWMRC to work with Polybar"
-    echo ""
+    echo -e "\nSetting up BSPWMRC to work with Polybar\n"
     sleep 1
     echo "" >> ~/.config/bspwm/bspwmrc
     echo "pkill -x polybar" >> ~/.config/bspwm/bspwmrc
@@ -93,9 +81,7 @@ setting_files(){
 }
 
 cp_launch(){
-    echo ""
-    echo "Copying launch.sh (Polybar Launcher) to ~/.config/polybar/"
-    echo ""
+    echo -e "\nCopying launch.sh (Polybar Launcher) to ~/.config/polybar/\n"
     sleep 1
     cd ~
     cd bsinstall/src/
@@ -114,9 +100,7 @@ main(){
     config
     setting_files
     cp_launch
-    echo ""
-    echo "Finishing..."
-    echo ""
+    echo -e "\nFinishing...\n"
     cd ~
     sleep 2
 }
